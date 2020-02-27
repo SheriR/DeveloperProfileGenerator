@@ -49,7 +49,7 @@ inquirer
       }
 
       
-console.log(dataToSendToGenerateHtml)
+//console.log(dataToSendToGenerateHtml)
 
 
 

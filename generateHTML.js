@@ -26,7 +26,7 @@ const colors = {
 };
 
 function generateHTML(inputData) {
-  console.log(inputData, "this is what we're looking for")
+  //console.log(inputData, "this is what we're looking for")
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
