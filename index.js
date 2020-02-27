@@ -1,4 +1,4 @@
-console.log("123");
+//console.log("123");
 
 // dependencies needed
 const inquirer = require("inquirer");
@@ -48,9 +48,11 @@ inquirer
         userColor: prompt.userColor
       }
 
-      //export info for generateHTML
-      // module.export = data;
+      
 console.log(dataToSendToGenerateHtml)
+
+
+
 
       fs.writeFile("index.html", generateHTML(dataToSendToGenerateHtml), function (err) {
         if (err) {
@@ -67,12 +69,12 @@ console.log(dataToSendToGenerateHtml)
 
 // // generate pdf
 function writePDF() {
-  var html = fs.readFileSync('./generateHTML.html', 'utf8');
-  var options = { format: 'letter' };
+  var html = fs.readFileSync('./index.html', 'utf8');
+  var options = { format: 'Letter' };
 
   pdf.create(html, options).toFile('./githubProfile.pdf', function (err, res) {
     if (err) return console.log(err);
-    console.log(res); 
+    console.log(res, "pdf created"); 
     
   });
 };

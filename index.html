@@ -26,11 +26,11 @@
          }
 
          .wrapper {
-         background-color: #5F64D3;
+         background-color: #E6E1C3;
          padding-top: 100px;
          }
          body {
-         background-color: #5F64D3;
+         background-color: #E6E1C3;
          -webkit-print-color-adjust: exact !important;
          font-family: 'Cabin', sans-serif;
          }
@@ -55,6 +55,7 @@
          }
          h4 {
          font-size: 1.5em;
+
          }
          h5 {
          font-size: 1.3em;
@@ -69,8 +70,8 @@
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color: #26175A;
-         color: white;
+         background-color: #C1C72C;
+         color: black;
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -82,7 +83,7 @@
          object-fit: cover;
          margin-top: -75px;
          margin: 2vh;
-         border: 6px solid #73448C;
+         border: 6px solid #black;
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
@@ -123,12 +124,15 @@
            margin-bottom: 20px;
          }
 
+         #bio.row {
+          justify-content: center;
+         }
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color: #26175A;
-           color: white;
-           margin: 20px;
+           background-color: #C1C72C;
+           color: black;
+           margin: 20px;           
          }
          
          .col {
@@ -146,7 +150,8 @@
           body { 
             zoom: .75; 
           } 
-         }
+
+                   
       </style>
     </head>
 
@@ -159,14 +164,14 @@
         <h1>Hi!</h1>
         <h1>My name is Sheri Rhoades!</h1>
         <div class="links">
-            <a class="link-style" >Olathe, KS</a>
-            <a class="link-style" href="https://github.com/SheriR">GitHub</a>
-            <a class="link-style" href="">Blog</a>
+            <a class="nav-link" >Olathe, KS</a>
+            <a class="nav-link" href="https://github.com/SheriR">GitHub</a>
+            <a class="nav-link" href="">Blog</a>
         </div>
   </div>
       <div class="container">
-        <div class="row">
-          <h4>"Full Stack Web Developer Bootcamp Student.  "</h4>
+        <div class="row" id="bio">
+          <h4>Full Stack Web Developer Bootcamp Student.  </h4>
         </div>
         <div class="row">
           <div class="col">

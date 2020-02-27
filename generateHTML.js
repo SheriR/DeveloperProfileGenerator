@@ -26,7 +26,7 @@ const colors = {
 };
 
 function generateHTML(inputData) {
-  console.log(inputData, "this is what we looking for")
+  console.log(inputData, "this is what we're looking for")
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -84,6 +84,7 @@ function generateHTML(inputData) {
          }
          h4 {
          font-size: 1.5em;
+
          }
          h5 {
          font-size: 1.3em;
@@ -152,12 +153,15 @@ function generateHTML(inputData) {
            margin-bottom: 20px;
          }
 
+         #bio.row {
+          justify-content: center;
+         }
          .card {
            padding: 20px;
            border-radius: 6px;
            background-color: ${colors[inputData.userColor].headerBackground};
            color: ${colors[inputData.userColor].headerColor};
-           margin: 20px;
+           margin: 20px;           
          }
          
          .col {
@@ -175,7 +179,8 @@ function generateHTML(inputData) {
           body { 
             zoom: .75; 
           } 
-         }
+
+                   
       </style>
     </head>
 
@@ -188,14 +193,14 @@ function generateHTML(inputData) {
         <h1>Hi!</h1>
         <h1>My name is ${inputData.name}!</h1>
         <div class="links">
-            <a class="link-style" >${inputData.location}</a>
-            <a class="link-style" href="${inputData.profile}">GitHub</a>
-            <a class="link-style" href="${inputData.blog}">Blog</a>
+            <a class="nav-link" >${inputData.location}</a>
+            <a class="nav-link" href="${inputData.profile}">GitHub</a>
+            <a class="nav-link" href="${inputData.blog}">Blog</a>
         </div>
   </div>
       <div class="container">
-        <div class="row">
-          <h4>"${inputData.bio}"</h4>
+        <div class="row" id="bio">
+          <h4>${inputData.bio}</h4>
         </div>
         <div class="row">
           <div class="col">
