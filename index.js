@@ -1,8 +1,10 @@
+console.log("123");
+
 // dependencies needed
 const inquirer = require("inquirer");
 const fs = require('fs');
 const axios = require("axios");
-const pdf = require("html-pdf");
+const pdf = require('html-pdf');
 const generateHTML = require('./generateHTML');
 
 // user questions
@@ -24,15 +26,15 @@ inquirer
   .prompt(questions)
   .then(function (prompt) {
     // github api call
+    
     const queryUrl = `https://api.github.com/users/${prompt.username}`;
     
-
     axios.get(queryUrl).then(function (res) {
-      console.log(queryURL);
+      
     
 
       // info needed from github for the PDF
-      const data = {
+      const dataToSendToGenerateHtml = {
         imgUrl: res.data.avatar_url,
         name: res.data.name,
         location: res.data.location,
@@ -43,14 +45,14 @@ inquirer
         followers: res.data.followers,
         stars: res.data.public_gists,
         following: res.data.following,
-        color: prompt.color
+        userColor: prompt.userColor
       }
 
       //export info for generateHTML
-      module.export = data;
+      // module.export = data;
+console.log(dataToSendToGenerateHtml)
 
-
-      fs.writeFile("githubprofile.html", generateHTML(data), function (err) {
+      fs.writeFile("index.html", generateHTML(dataToSendToGenerateHtml), function (err) {
         if (err) {
           throw err;
         }
@@ -65,7 +67,7 @@ inquirer
 
 // // generate pdf
 function writePDF() {
-  var html = fs.readFileSync('index.html', 'utf8');
+  var html = fs.readFileSync('./generateHTML.html', 'utf8');
   var options = { format: 'letter' };
 
   pdf.create(html, options).toFile('./githubProfile.pdf', function (err, res) {

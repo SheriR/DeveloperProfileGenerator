@@ -25,7 +25,8 @@ const colors = {
   }
 };
 
-function generateHTML(data) {
+function generateHTML(inputData) {
+  console.log(inputData, "this is what we looking for")
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -48,21 +49,24 @@ function generateHTML(data) {
          padding: 0;
          margin: 0;
          }
+         
          html, body, .wrapper {
          height: 100%;
          }
+
          .wrapper {
-         background-color: ${colors[data.color].wrapperBackground};
+         background-color: ${colors[inputData.userColor].wrapperBackground};
          padding-top: 100px;
          }
          body {
-         background-color: white;
+         background-color: ${colors[inputData.userColor].wrapperBackground};
          -webkit-print-color-adjust: exact !important;
          font-family: 'Cabin', sans-serif;
          }
          main {
          background-color: #E9EDEE;
          height: auto;
+         width: 100%;
          padding-top: 30px;
          }
          h1, h2, h3, h4, h5, h6 {
@@ -94,8 +98,8 @@ function generateHTML(data) {
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color: ${colors[data.color].headerBackground};
-         color: ${colors[data.color].headerColor};
+         background-color: ${colors[inputData.userColor].headerBackground};
+         color: ${colors[inputData.userColor].headerColor};
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -106,12 +110,14 @@ function generateHTML(data) {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
-         border: 6px solid ${colors[data.color].photoBorderColor};
+         margin: 2vh;
+         border: 6px solid ${colors[inputData.userColor].photoBorderColor};
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
          width: 100%;
          text-align: center;
+         
          }
          .photo-header h1 {
          margin-top: 10px;
@@ -149,8 +155,8 @@ function generateHTML(data) {
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: ${colors[inputData.userColor].headerBackground};
+           color: ${colors[inputData.userColor].headerColor};
            margin: 20px;
          }
          
@@ -178,39 +184,39 @@ function generateHTML(data) {
 <div class="wrapper">
   
   <div class="photo-header">
-    <img src="${data.imgUrl}" alt="user image" class="photo-header"></img>
+    <img src="${inputData.imgUrl}" alt="user image" class="photo-header"></img>
         <h1>Hi!</h1>
-        <h1>My name is ${data.name}!</h1>
+        <h1>My name is ${inputData.name}!</h1>
         <div class="links">
-            <a class="link-style" >${data.location}</a>
-            <a class="link-style" href="${data.profile}">GitHub</a>
-            <a class="link-style" href="${data.blog}">Blog</a>
+            <a class="link-style" >${inputData.location}</a>
+            <a class="link-style" href="${inputData.profile}">GitHub</a>
+            <a class="link-style" href="${inputData.blog}">Blog</a>
         </div>
   </div>
       <div class="container">
         <div class="row">
-          <h4>"{data.bio}"</h4>
+          <h4>"${inputData.bio}"</h4>
         </div>
         <div class="row">
           <div class="col">
             <div class="card">
               <h3>Repos</h3>
-              <h2>${data.repos}</h2>
+              <h2>${inputData.repos}</h2>
             </div>
         
             <div class="card">
               <h3>Followers</h3>
-              <h2>${data.followers}</h2>
+              <h2>${inputData.followers}</h2>
             </div>
 
             <div class="card">
               <h3>Stars:</h3>
-              <h2>${data.stars}</h2>
+              <h2>${inputData.stars}</h2>
             </div>
    
             <div class="card">
               <h3>Following</h3>
-              <h2>${data.following}</h2>
+              <h2>${inputData.following}</h2>
             </div>
           </div>
         </div>
